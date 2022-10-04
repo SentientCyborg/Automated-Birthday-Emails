@@ -1,8 +1,9 @@
-import random, smtplib
+import random
+import smtplib
 import pandas as pd
 import datetime as dt
 
-
+# Configure this information to your specifics
 MY_EMAIL = "******@email.com"
 PASSWORD = "****email password****"
 MY_RELAY = "****SMTP Relay****"
@@ -12,7 +13,6 @@ birthdays_data = pd.read_csv("birthdays.csv")
 birthdays = birthdays_data.to_dict(orient="records")
 today = dt.date.today()
 now = dt.datetime.now()
-
 
 for birthday in birthdays:
     if birthday["day"] == now.day and birthday["month"] == now.month:
