@@ -20,7 +20,7 @@ for birthday in birthdays:
             letter = f.read()
             letter = letter.replace("[NAME]", birthday['name'])
             letter = letter.replace("[SENDER]", SENDER)
-            with smtplib.SMTP(host=MY_RELAY) as connection:
+            with smtplib.SMTP(host=MY_RELAY, port=587) as connection:
                 connection.starttls()
                 connection.login(user=MY_EMAIL, password=PASSWORD)
                 connection.sendmail(from_addr=MY_EMAIL,
